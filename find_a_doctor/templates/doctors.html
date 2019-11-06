@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/static/doctors.css">
+</head>
+<a class="btn btn-primary" href="/add_doctor/" role="button">Add</a>
+<br>
+<br>
+<div class="card-deck">
+  {% for doctor in doctors %}
+    <div class="card">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">Name: {{doctor.name}}</h5>
+        <p class="card-text">Qualification: {{doctor.qualification}}</p>
+        <a class="btn btn-primary" href="/doctor/{{doctor.name}}/" role="button">See more..</a>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="/edit/{{doctor.name}}/" role="button">Edit</a>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="/remove/{{doctor.name}}/" role="button">Remove Doctor</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

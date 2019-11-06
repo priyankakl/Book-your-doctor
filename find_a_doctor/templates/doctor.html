@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/static/doctor.css">
+</head>
+  <div class="card-deck">
+      <div class="card">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title"><b>Name: {{doctor.name}}</b></h5>
+          <h1>Qualification: {{doctor.qualification}}</h1>
+          <h1>Experience {{doctor.experience}}</h1>
+          <h1>Address: {{doctor.address}}</h1>
+          <h1>Fee: {{doctor.fee}}</h1>
+          <h1>Available: {{doctor.available}}</h1>
+          <a class="btn btn-primary" href="/book/{{doctor.name}}/" role="button">Book</a>
+          <a class="btn btn-primary" href="/doctors/" role="button">Back</a>
+        </div>
+      </div>
+  </div>
+{% endblock %}

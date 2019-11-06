@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js">
+         </script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>
+            Chart
+        </title>
+    </head>
+    <body>
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <script>
+            let myChart=document.getElementById('myChart').getContext('2d');
+            let bookedChart=new Chart(myChart, {
+                type:'bar',
+                data: {
+                    labels: [
+                        {% for doctor in doctors %} '{{ doctor.name }}',{% endfor %}],
+                    datasets: [{
+                        label:'Booked',
+                        data: [{% for doctor in doctors %} {{ doctor.booked }},{% endfor %}]
+                        }]
+                    },
+                options:{}
+                });
+        </script>
+        
+    </body>
+
+</html>
+
+
+
